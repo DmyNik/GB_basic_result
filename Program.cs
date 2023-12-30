@@ -111,7 +111,25 @@ static void ShowArray(string[] arrayForPrint, string note = "Массив име
 static string[] ModificStringArray(string[] array, int num = 3) // Модифицировать строковый массив
 {
 
-    string[] result = new string[3];
+    int lng = array.Length;
+    int cnt = 0;
+    
+    for (int i = 0; i < lng; i++)
+    {        
+        if (array[i].Length <= num) { cnt++; }
+    }
+
+    string[] result = new string[cnt];
+    cnt = 0;
+
+    for (int i = 0; i < lng; i++)
+    {        
+        if (array[i].Length <= num) 
+        { 
+            result[cnt] = array[i];
+            cnt++;         
+        }
+    }    
 
     return result;
 
